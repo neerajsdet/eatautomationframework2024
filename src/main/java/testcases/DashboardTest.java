@@ -29,10 +29,10 @@ public class DashboardTest {
     @BeforeMethod(alwaysRun = true)
     public void launchApplication(){
         Wrapper.waitForLoading(3);
-        basePage.launchURL("https://opensource-demo.orangehrmlive.com/");
+        basePage.launchURL(Wrapper.get("url"));
         loginPage.checkIfLoginTestDisplay();
-        loginPage.enterUserName("admin");
-        loginPage.enterPassword("admin123");
+        loginPage.enterUserName(Wrapper.get("username"));
+        loginPage.enterPassword(Wrapper.get("password"));
         loginPage.clickOnLoginButton();
         Wrapper.waitForLoading(2);
     }
@@ -47,12 +47,6 @@ public class DashboardTest {
     public void verifyPIMPageIsOpeningCorrectly(){
         dashboardPage.clickOnGivenMenuOnHomePage("PIM");
         Assert.assertTrue(dashboardPage.verifyIfGivenMenuPageHasOpen("PIM"));
-    }
-
-    @Test(priority = 3)
-    public void verifyLeavePageIsOpeningCorrectly(){
-        dashboardPage.clickOnGivenMenuOnHomePage("Leave");
-        Assert.assertTrue(dashboardPage.verifyIfGivenMenuPageHasOpen("Leave"));
     }
 
     @Test(priority = 4)

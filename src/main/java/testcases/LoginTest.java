@@ -28,7 +28,7 @@ public class LoginTest {
     @BeforeMethod(alwaysRun = true)
     public void launchApplication(){
         Wrapper.waitForLoading(3);
-        basePage.launchURL("https://opensource-demo.orangehrmlive.com/");
+        basePage.launchURL(Wrapper.get("url"));
     }
 
     @Test(priority = 1)
@@ -54,8 +54,8 @@ public class LoginTest {
     public void verifyUserIsAbleToLoginIntoApplication(){
 
         loginPage.checkIfLoginTestDisplay();
-        loginPage.enterUserName("admin");
-        loginPage.enterPassword("admin123");
+        loginPage.enterUserName(Wrapper.get("username"));
+        loginPage.enterPassword(Wrapper.get("password"));
 
         Wrapper.waitForLoading(2);
         loginPage.clickOnLoginButton();

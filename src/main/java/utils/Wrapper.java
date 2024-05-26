@@ -26,4 +26,10 @@ public class Wrapper {
         }
         return property;
     }
+
+
+    public static String get(String propertyName){
+        return loadProperties().getProperty(propertyName).trim();
+    }
+
 }
